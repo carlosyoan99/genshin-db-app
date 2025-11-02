@@ -1,19 +1,17 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { useTheme } from '../../contexts/ThemeContext'
 
 const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme()
 
-  const themeIcon = useRef('☀️')
-
-  useEffect(() => {
+  const getThemeIcon = () => {
     switch (theme) {
-      case 'light': themeIcon.current = '☀️'; break;
-      case 'dark': themeIcon.current = '🌙'; break;
-      case 'genshin': themeIcon.current = '⚡'; break;
-      default: themeIcon.current = '☀️';
+      case 'light': return '☀️'
+      case 'dark': return '🌙'
+      case 'genshin': return '⚡'
+      default: return '☀️'
     }
-  }, [theme])
+  }
 
   return (
     <button 
@@ -21,7 +19,7 @@ const ThemeToggle: React.FC = () => {
       onClick={toggleTheme}
       aria-label="Cambiar tema"
     >
-      <span className="theme-icon">{themeIcon.current}</span>
+      <span className="theme-icon">{getThemeIcon()}</span>
     </button>
   )
 }
