@@ -1,47 +1,27 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { useTheme } from '../../contexts/ThemeContext'
 import ThemeToggle from './ThemeToggle'
 import LanguageSelector from './LanguageSelector'
+import { NAV_ROUTES } from '../../utils/constants'
 
 const Header: React.FC = () => {
   const { theme } = useTheme()
   const location = useLocation()
 
-  const navItems = [
-    { path: '/', label: 'Inicio' },
-    { path: '/characters', label: 'Personajes' },
-    { path: '/weapons', label: 'Armas' },
-    { path: '/artifacts', label: 'Artefactos' },
-    { path: '/enemies', label: 'Enemigos' },
-    { path: '/materials', label: 'Materiales' },
-    { path: '/elements', label: 'Elementos' },
-    { path: '/domains', label: 'Dominios' },
-    { path: '/foods', label: 'Comidas' },
-    { path: '/animals', label: 'Animales' },
-    { path: '/about', label: 'Acerca de' }
-  ]
+// Encontrar la página actual para mostrar el título
+  const currentPage = NAV_ROUTES.find(route => route.path === location.pathname) || 
+                     NAV_ROUTES.find(route => route.path === '/')
 
   return (
     <header className={`header theme-${theme}`}>
       <div className="header-container">
-        <Link to="/" className="logo">
-          <h1>Genshin DB</h1>
-        </Link>
+        <div className="header-title">
+          <h1>{currentPage?.label || 'Genshin DB'}</h1>
+        </div>
         
-        <nav className="nav">
-          {navItems.map(item => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="header-controls">
+        {/* Controles en el header para desktop */}
+        <div className="header-controls desktop-only">
           <ThemeToggle />
           <LanguageSelector />
         </div>
