@@ -87,7 +87,7 @@ const About: React.FC = () => {
                 className="tech-card"
               >
                 {tech.name}
-              </a>
+              </a> 
             ))}
           </div>
         </section>

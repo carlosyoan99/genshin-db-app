@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import genshin from 'genshin-db'
 import { useLanguage } from '../contexts/LanguageContext'
+import ImageWithFallback from '../components/common/ImageWithFallback'
 
 const WeaponDetail: React.FC = () => {
   const { name } = useParams<{ name: string }>()
@@ -41,13 +42,10 @@ const WeaponDetail: React.FC = () => {
 
       <div className="detail-content">
         <div className="detail-image">
-          <img 
+          <ImageWithFallback 
             src={weapon.images?.filename_icon} 
             alt={weapon.name}
-            onError={(e) => {
-              const target = e.target as HTMLImageElement
-              target.src = 'https://via.placeholder.com/300x300?text=Weapon'
-            }}
+            fallbackType='weapon'
           />
         </div>
 

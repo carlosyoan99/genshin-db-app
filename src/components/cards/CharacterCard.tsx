@@ -1,6 +1,6 @@
 import React from 'react'
-//import type { Character } from '../../types'
 import type { Character } from 'genshin-db'
+import ImageWithFallback from '../common/ImageWithFallback'
 
 interface CharacterCardProps {
   character: Character
@@ -10,20 +10,17 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
   return (
     <div className="character-card">
       <div className="character-header">
-        <img 
+        <ImageWithFallback 
           src={character.images?.filename_icon} 
           alt={character.name}
           className="character-image"
-          onError={(e) => {
-            const target = e.target as HTMLImageElement
-            target.src = 'https://via.placeholder.com/60x60?text=?'
-          }}
+          fallbackType="character"
         />
         <div>
           <h3 className="character-name">{character.name}</h3>
           <div className="character-details">
             {character.elementType && (
-              <span className={`element-badge ${character.elementText.toLowerCase()}`}>
+              <span className={`element-badge ${character.elementType.toLowerCase()}`}>
                 {character.elementText}
               </span>
             )}

@@ -48,6 +48,7 @@ const Artifacts: React.FC = () => {
               image={artifact.images?.filename_flower}
               rarity={Math.max(...(artifact.rarityList || []))}
               description={`${artifact['2pc'] || 'Set completo'}`}
+              itemType='artifact'
             />
           </Link>
           )

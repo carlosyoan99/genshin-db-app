@@ -47,7 +47,8 @@ const Enemies: React.FC = () => {
               name={enemy.name}
               image={enemy.images?.filename_icon}
               type={enemy.enemyType || enemy.categoryType}
-              description={enemy.specialNames.join(', ') || enemy.description}
+                description={enemy.specialNames.join(', ') || enemy.description}
+                itemType='enemy'
             />
           </Link>
         )

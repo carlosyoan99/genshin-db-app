@@ -12,5 +12,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
+    assetsDir: 'assets',  // Configuración para assets
   },
+  // Configuración para alias (opcional)
+  resolve: {
+    alias: {
+      '@': '/src',
+      '@images': '/public/images'
+    }
+  }
 })
