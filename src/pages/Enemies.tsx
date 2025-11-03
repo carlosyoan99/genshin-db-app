@@ -3,16 +3,19 @@ import { Link } from 'react-router-dom'
 import genshin from 'genshin-db'
 import { useLanguage } from '../contexts/LanguageContext'
 import { useSearch } from '../hooks/useSearch'
+import { useTranslation } from '../hooks/useTranslation'
 import SearchFilter from '../components/common/SearchFilter'
 import ItemCard from '../components/cards/ItemCard'
 
 const Enemies: React.FC = () => {
   const { language } = useLanguage()
+    const t = useTranslation()
   
   const enemies = useMemo(() => {
     return genshin.enemies('names', { matchCategories: true })
       .map(name => genshin.enemies(name, { 
-        resultLanguage: language === 'spanish' ? 'spanish' : 'english'
+        resultLanguage: language,
+        queryLanguages: [language]
       }))
       .filter(Boolean)
   }, [language])
@@ -25,14 +28,14 @@ const Enemies: React.FC = () => {
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Enemigos</h1>
-        <p>Explora todos los enemigos y jefes del juego</p>
+        <h1>{t.pages.enemies.title}</h1>
+        <p>{t.pages.enemies.subtitle}</p>
       </div>
 
       <SearchFilter
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
-        placeholder="Buscar enemigos..."
+        placeholder={t.pages.enemies.searchPlaceholder}
       />
 
       <div className="grid-container">
@@ -57,7 +60,7 @@ const Enemies: React.FC = () => {
 
       {filteredItems.length === 0 && (
         <div className="no-results">
-          <p>No se encontraron enemigos que coincidan con la búsqueda.</p>
+          <p>{t.common.noResults}</p>
         </div>
       )}
     </div>

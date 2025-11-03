@@ -1,2 +1,12 @@
 export type Theme = 'light' | 'dark' | 'genshin'
-export type Language = 'english' | 'spanish' | 'japanese' | 'chinese' | 'korean'
+export type Language = 
+  | 'english' 
+  | 'spanish' 
+  | 'japanese' 
+  | 'chinese' 
+  | 'korean'
+  | 'french'
+  | 'portuguese'
+  | 'german'
+  | 'russian'
+  | 'italian'

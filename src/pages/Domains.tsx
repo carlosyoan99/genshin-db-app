@@ -2,16 +2,19 @@ import React, { useMemo } from 'react'
 import genshin from 'genshin-db'
 import { useLanguage } from '../contexts/LanguageContext'
 import { useSearch } from '../hooks/useSearch'
+import { useTranslation } from '../hooks/useTranslation'
 import SearchFilter from '../components/common/SearchFilter'
 import ItemCard from '../components/cards/ItemCard'
 
 const Domains: React.FC = () => {
   const { language } = useLanguage()
+    const t = useTranslation()
   
   const domains = useMemo(() => {
     return genshin.domains('names', { matchCategories: true })
       .map(name => genshin.domains(name, { 
-        resultLanguage: language === 'spanish' ? 'spanish' : 'english'
+        resultLanguage: language,
+        queryLanguages: [language]
       }))
       .filter(Boolean)
   }, [language])
@@ -24,14 +27,14 @@ const Domains: React.FC = () => {
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Dominios</h1>
-        <p>Dominios de artefactos, talentos y ascensión</p>
+        <h1>{t.pages.domains.title}</h1>
+        <p>{t.pages.domains.subtitle}</p>
       </div>
 
       <SearchFilter
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
-        placeholder="Buscar dominios..."
+        placeholder={t.pages.domains.searchPlaceholder}
       />
 
       <div className="grid-container">
@@ -54,7 +57,7 @@ const Domains: React.FC = () => {
 
       {filteredItems.length === 0 && (
         <div className="no-results">
-          <p>No se encontraron dominios que coincidan con la búsqueda.</p>
+          <p>{t.common.noResults}</p>
         </div>
       )}
     </div>

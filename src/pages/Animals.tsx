@@ -2,16 +2,19 @@ import React, { useMemo } from 'react'
 import genshin from 'genshin-db'
 import { useLanguage } from '../contexts/LanguageContext'
 import { useSearch } from '../hooks/useSearch'
+import { useTranslation } from '../hooks/useTranslation'
 import SearchFilter from '../components/common/SearchFilter'
 import ItemCard from '../components/cards/ItemCard'
 
 const Animals: React.FC = () => {
   const { language } = useLanguage()
+    const t = useTranslation()
   
   const animals = useMemo(() => {
     return genshin.animals('names', { matchCategories: true })
       .map(name => genshin.animals(name, { 
-        resultLanguage: language === 'spanish' ? 'spanish' : 'english'
+        resultLanguage: language,
+        queryLanguages: [language]
       }))
       .filter(Boolean)
   }, [language])
@@ -24,14 +27,14 @@ const Animals: React.FC = () => {
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Animales</h1>
-        <p>Fauna y criaturas de Teyvat</p>
+        <h1>{t.pages.animals.title}</h1>
+        <p>{t.pages.animals.subtitle}</p>
       </div>
 
       <SearchFilter
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
-        placeholder="Buscar animales..."
+        placeholder={t.pages.animals.searchPlaceholder}
       />
 
       <div className="grid-container">
@@ -54,7 +57,7 @@ const Animals: React.FC = () => {
 
       {filteredItems.length === 0 && (
         <div className="no-results">
-          <p>No se encontraron animales que coincidan con la búsqueda.</p>
+          <p>{t.common.noResults}</p>
         </div>
       )}
     </div>

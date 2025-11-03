@@ -1,27 +1,27 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import { useLanguage } from '../contexts/LanguageContext'
+import { useTranslation } from '../hooks/useTranslation'
 
 const Home: React.FC = () => {
-//  const { language } = useLanguage()
+  const t = useTranslation()
 
   const sections = [
-    { path: '/characters', label: 'Personajes', emoji: '👤' },
-    { path: '/weapons', label: 'Armas', emoji: '⚔️' },
-    { path: '/artifacts', label: 'Artefactos', emoji: '🛡️' },
-    { path: '/enemies', label: 'Enemigos', emoji: '👹' },
-    { path: '/materials', label: 'Materiales', emoji: '📦' },
-    { path: '/elements', label: 'Elementos', emoji: '🔮' },
-    { path: '/domains', label: 'Dominios', emoji: '🏰' },
-    { path: '/foods', label: 'Comidas', emoji: '🍲' },
-    { path: '/animals', label: 'Animales', emoji: '🐾' }
+    { path: '/characters', label: t.nav.characters, emoji: '👤' },
+    { path: '/weapons', label: t.nav.weapons, emoji: '⚔️' },
+    { path: '/artifacts', label: t.nav.artifacts, emoji: '🛡️' },
+    { path: '/enemies', label: t.nav.enemies, emoji: '👹' },
+    { path: '/materials', label: t.nav.materials, emoji: '📦' },
+    { path: '/elements', label: t.nav.elements, emoji: '🔮' },
+    { path: '/domains', label: t.nav.domains, emoji: '🏰' },
+    { path: '/foods', label: t.nav.foods, emoji: '🍲' },
+    { path: '/animals', label: t.nav.animals, emoji: '🐾' }
   ]
 
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Genshin Impact Database</h1>
-        <p>Explora toda la información del mundo de Teyvat</p>
+        <h1>{t.pages.home.title}</h1>
+        <p>{t.pages.home.subtitle}</p>
       </div>
 
       <div className="home-grid">
@@ -34,10 +34,7 @@ const Home: React.FC = () => {
       </div>
 
       <div className="home-info">
-        <p>
-          Esta aplicación utiliza la librería genshin-db para proporcionar 
-          información actualizada sobre Genshin Impact.
-        </p>
+        <p>{t.pages.home.description}</p>
       </div>
     </div>
   )

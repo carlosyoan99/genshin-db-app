@@ -8,37 +8,39 @@ import ItemCard from '../components/cards/ItemCard'
 
 const Weapons: React.FC = () => {
   const { language } = useLanguage()
+  const t = useTranslation()
   
   const weapons = useMemo(() => {
     return genshin.weapons('names', { matchCategories: true })
       .map(name => genshin.weapons(name, { 
-        resultLanguage: language === 'spanish' ? 'spanish' : 'english'
+        resultLanguage: language,
+        queryLanguages: [language]
       }))
       .filter(Boolean)
   }, [language])
 
   const { searchTerm, setSearchTerm, filteredItems } = useSearch(
     weapons,
-    ['name', 'weapontype', 'substat']
+    ['name', 'weaponType', 'substat']
   )
 
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Armas</h1>
-        <p>Explora todas las armas disponibles en Genshin Impact</p>
+        <h1>{t.pages.weapon.title}</h1>
+        <p>{t.pages.weapon.subtitle}</p>
       </div>
 
       <SearchFilter
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
-        placeholder="Buscar armas..."
+        placeholder={t.pages.weapon.searchPlaceholder}
       />
 
       <div className="grid-container">
         {filteredItems.length === 0 ? (
           <div className="no-results">
-            <p>No se encontraron armas que coincidan con la búsqueda.</p>
+            <p>{t.common.noResults}</p>
           </div>
         ) : filteredItems.map(weapon => {
           if(weapon) return (

@@ -2,14 +2,17 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import genshin, { type QueryOptions } from 'genshin-db'
 import { useLanguage } from '../contexts/LanguageContext'
+import { useTranslation } from '../hooks/useTranslation'
 import ImageWithFallback from '../components/common/ImageWithFallback'
 import MaterialList from '../components/common/MaterialList'
 
 const WeaponDetail: React.FC = () => {
   const { name } = useParams<{ name: string }>()
   const { language } = useLanguage()
+    const t = useTranslation()
   const config : QueryOptions = { 
-    resultLanguage: language === 'spanish' ? 'spanish' : 'english'
+    resultLanguage: language,
+    queryLanguages: [language]
   }
 
   const weapon = name ? genshin.weapons(name, config) : null
@@ -62,15 +65,15 @@ const WeaponDetail: React.FC = () => {
 
         <div className="detail-info">
           <section className="info-section">
-            <h2>Información General</h2>
+            <h2>{t.weaponDetail.generalInfo}</h2>
             <div className="info-grid">
               <div className="info-item">
-                <strong>Tipo:</strong>
+                <strong>{t.weaponDetail.weaponType}:</strong>
                 <span>{weapon.weaponType}</span>
               </div>
               {weapon.mainStatText && (
                 <div className="info-item">
-                  <strong>Substat:</strong>
+                  <strong>{t.weaponDetail.substat}:</strong>
                   <span>{weapon.mainStatText}</span>
                 </div>
               )}
@@ -82,7 +85,7 @@ const WeaponDetail: React.FC = () => {
               )}
               {weapon.baseStatText && (
                 <div className="info-item">
-                  <strong>ATQ Base:</strong>
+                  <strong>{t.weaponDetail.baseAtk}:</strong>
                   <span>{weapon.baseAtkValue}</span>
                 </div>
               )}
@@ -109,7 +112,7 @@ const WeaponDetail: React.FC = () => {
           {/* Niveles de Refinamiento */}
           {refinementLevels.length > 0 && (
             <section className="info-section">
-              <h2>Niveles de Refinamiento</h2>
+              <h2>{t.weaponDetail.refinementLevels}</h2>
               <div className="refinement-levels">
                 {refinementLevels.map((refinement, index) => (
                   <div key={index} className="refinement-card">
@@ -128,7 +131,7 @@ const WeaponDetail: React.FC = () => {
           {/* Materiales de Ascensión */}
           {weapon.costs && (
             <section className="info-section">
-              <h2>Materiales de Ascensión</h2>
+              <h2>{t.weaponDetail.ascensionMaterials}</h2>
               <div className="ascension-materials">
                 {Object.entries(weapon.costs).map(([level, materials]) => (
                   <div key={level} className="ascension-level">

@@ -1,84 +1,51 @@
 import React from 'react'
-import { useLanguage } from '../contexts/LanguageContext'
+import { useTranslation } from '../hooks/useTranslation'
 
 const About: React.FC = () => {
-  const { language } = useLanguage()
+  const t = useTranslation()
 
-  const translations = {
-    english: {
-      title: "About the Project",
-      description: "This is a fan-made web application that provides comprehensive information about Genshin Impact game data.",
-      features: "Features",
-      featuresList: [
-        "Character information and details",
-        "Weapons database with stats",
-        "Artifacts sets and bonuses",
-        "Enemies and bosses data",
-        "Materials and resources",
-        "Multi-language support",
-        "Dark/Light theme"
-      ],
-      technologies: "Technologies Used",
-      techList: [
-        { name: "React", url: "https://reactjs.org" },
-        { name: "React Router", url: "https://reactrouter.com" },
-        { name: "Vite", url: "https://vitejs.dev" },
-        { name: "TypeScript", url: "https://www.typescriptlang.org" },
-        { name: "Genshin DB", url: "https://github.com/theBowja/genshin-db" }
-      ],
-      disclaimer: "This project is not affiliated with HoYoverse. Genshin Impact, game content and materials are trademarks and copyrights of HoYoverse."
-    },
-    spanish: {
-      title: "Acerca del Proyecto",
-      description: "Esta es una aplicación web creada por fans que proporciona información completa sobre los datos del juego Genshin Impact.",
-      features: "Características",
-      featuresList: [
-        "Información y detalles de personajes",
-        "Base de datos de armas con estadísticas",
-        "Sets de artefactos y bonificaciones",
-        "Datos de enemigos y jefes",
-        "Materiales y recursos",
-        "Soporte multi-idioma",
-        "Tema claro/oscuro"
-      ],
-      technologies: "Tecnologías Utilizadas",
-      techList: [
-        { name: "React", url: "https://reactjs.org" },
-        { name: "React Router", url: "https://reactrouter.com" },
-        { name: "Vite", url: "https://vitejs.dev" },
-        { name: "TypeScript", url: "https://www.typescriptlang.org" },
-        { name: "Genshin DB", url: "https://github.com/theBowja/genshin-db" }
-      ],
-      disclaimer: "Este proyecto no está afiliado con HoYoverse. Genshin Impact, el contenido del juego y los materiales son marcas registradas y derechos de autor de HoYoverse."
-    }
-  }
+  const featuresList = [
+    t.pages.characters.title,
+    t.pages.weapons.title,
+    t.pages.artifacts.title,
+    t.pages.enemies.title,
+    t.pages.materials.title,
+    "Multi-language support",
+    "Dark/Light theme"
+  ]
 
-  const t = translations[language === 'spanish' ? 'spanish' : 'english']
+  const techList = [
+    { name: "React", url: "https://reactjs.org" },
+    { name: "React Router", url: "https://reactrouter.com" },
+    { name: "Vite", url: "https://vitejs.dev" },
+    { name: "TypeScript", url: "https://www.typescriptlang.org" },
+    { name: "Genshin DB", url: "https://github.com/theBowja/genshin-db" }
+  ]
 
   return (
     <div className="page">
       <div className="page-header">
-        <h1>{t.title}</h1>
+        <h1>{t.pages.about.title}</h1>
       </div>
 
       <div className="about-content">
         <section className="info-section">
-          <p>{t.description}</p>
+          <p>{t.pages.about.description}</p>
         </section>
 
         <section className="info-section">
-          <h2>{t.features}</h2>
+          <h2>{t.pages.about.features}</h2>
           <ul className="features-list">
-            {t.featuresList.map((feature, index) => (
+            {featuresList.map((feature, index) => (
               <li key={index}>{feature}</li>
             ))}
           </ul>
         </section>
 
         <section className="info-section">
-          <h2>{t.technologies}</h2>
+          <h2>{t.pages.about.technologies}</h2>
           <div className="tech-grid">
-            {t.techList.map((tech, index) => (
+            {techList.map((tech, index) => (
               <a
                 key={index}
                 href={tech.url}
@@ -87,13 +54,13 @@ const About: React.FC = () => {
                 className="tech-card"
               >
                 {tech.name}
-              </a> 
+              </a>
             ))}
           </div>
         </section>
 
         <section className="info-section">
-          <p className="disclaimer">{t.disclaimer}</p>
+          <p className="disclaimer">{t.pages.about.disclaimer}</p>
         </section>
       </div>
     </div>

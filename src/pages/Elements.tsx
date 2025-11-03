@@ -1,8 +1,10 @@
 import React from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
+import { useTranslation } from '../hooks/useTranslation'
 
 const Elements: React.FC = () => {
   const { language } = useLanguage()
+  const tt = useTranslation()
 
   const elements = [
     {
@@ -82,8 +84,8 @@ const Elements: React.FC = () => {
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Elementos</h1>
-        <p>Los siete elementos que definen el combate en Teyvat</p>
+        <h1>{tt.pages.elements.title}</h1>
+        <p>{tt.pages.elements.subtitle}</p>
       </div>
 
       <div className="elements-grid">

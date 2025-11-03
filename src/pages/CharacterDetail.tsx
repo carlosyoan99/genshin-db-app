@@ -2,14 +2,17 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import genshin, { type QueryOptions } from 'genshin-db'
 import { useLanguage } from '../contexts/LanguageContext'
+import { useTranslation } from '../hooks/useTranslation'
 import ImageWithFallback from '../components/common/ImageWithFallback'
 import MaterialList from '../components/common/MaterialList'
 
 const CharacterDetail: React.FC = () => {
   const { name } = useParams<{ name: string }>()
   const { language } = useLanguage()
+    const t = useTranslation()
   const config : QueryOptions = {
-    resultLanguage: language === 'spanish' ? 'spanish' : 'english'
+    resultLanguage: language,
+        queryLanguages: [language]
   }
 
   const character = name ? genshin.characters(name, config) : null
@@ -91,29 +94,29 @@ const CharacterDetail: React.FC = () => {
 
         <div className="detail-info">
           <section className="info-section">
-            <h2>Informaci&oacute;n General</h2>
+            <h2>{t.characterDetail.generalInfo}</h2>
             <div className="info-grid">
               {character.region && (
                 <div className="info-item">
-                  <strong>Regi&oacte;n:</strong>
+                  <strong>{t.characterDetail.region}</strong>
                   <span>{character.region}</span>
                 </div>
               )}
               {character.affiliation && (
                 <div className="info-item">
-                  <strong>Afiliaci&oacute;n:</strong>
+                  <strong>{t.characterDetail.affiliation}</strong>
                   <span>{character.affiliation}</span>
                 </div>
               )}
               {character.constellation && (
                 <div className="info-item">
-                  <strong>Constelaci&oacute;n:</strong>
+                  <strong>{t.characterDetail.constellation}</strong>
                   <span>{character.constellation}</span>
                 </div>
               )}
               {character.birthday && (
                 <div className="info-item">
-                  <strong>Cumplea&ntilde;os:</strong>
+                  <strong>{t.characterDetail.birthday}</strong>
                   <span>{character.birthday}</span>
                 </div>
               )}
@@ -130,7 +133,7 @@ const CharacterDetail: React.FC = () => {
           {/* Talentos de Combate */}
           {combatTalents.length > 0 && (
             <section className="info-section">
-              <h2>Talentos de Combate</h2>
+              <h2>{t.characterDetail.combatTalents}</h2>
               <div className="talents-grid">
                 {combatTalents.map(({ key, label }) => {
                   const talent = characterTalent ? characterTalent[key as keyof typeof characterTalent] : null
@@ -151,7 +154,7 @@ const CharacterDetail: React.FC = () => {
           {/* Talentos Pasivos */}
           {passiveTalents.length > 0 && (
             <section className="info-section">
-              <h2>Talentos Pasivos</h2>
+              <h2>{t.characterDetail.passiveTalents}</h2>
               <div className="talents-grid">
                 {passiveTalents.map(({ key, label }) => {
                   const talent = characterTalent ? characterTalent[key as keyof typeof characterTalent] : null
@@ -169,7 +172,7 @@ const CharacterDetail: React.FC = () => {
           {/* Constelaciones */}
           {characterConstellation && characterConstellation.length > 0 && (
             <section className="info-section">
-              <h2>Constelaciones</h2>
+              <h2>{t.characterDetail.constellation}</h2>
               <div className="constellations-grid">
                 {characterConstellation.map((constellation, index) => {
                   if (constellation) return (
@@ -190,7 +193,7 @@ const CharacterDetail: React.FC = () => {
           {/* Materiales de Ascensión */}
           {character.costs && (
             <section className="info-section">
-              <h2>Materiales de Ascensión</h2>
+              <h2>{t.characterDetail.ascensionMaterials}</h2>
               <div className="ascension-materials">
                 {Object.entries(character.costs).map(([level, materials]) => (
                   <div key={level} className="ascension-level">

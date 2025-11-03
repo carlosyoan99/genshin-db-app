@@ -7,6 +7,11 @@ export const SUPPORTED_LANGUAGES = [
   { code: 'japanese', name: '日本語', flag: '🇯🇵', genshinCode: 'japanese' },
   { code: 'chinese', name: '中文', flag: '🇨🇳', genshinCode: 'chinese' },
   { code: 'korean', name: '한국어', flag: '🇰🇷', genshinCode: 'korean' },
+  { code: 'french', name: 'Français', flag: '🇫🇷', genshinCode: 'french' },
+  { code: 'portuguese', name: 'Português', flag: '🇵🇹', genshinCode: 'portuguese' },
+  { code: 'german', name: 'Deutsch', flag: '🇩🇪', genshinCode: 'german' },
+  { code: 'russian', name: 'Русский', flag: '🇷🇺', genshinCode: 'russian' },
+  { code: 'italian', name: 'Italiano', flag: '🇮🇹', genshinCode: 'italian' },
 ] as const;
 
 // Temas disponibles

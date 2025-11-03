@@ -2,16 +2,19 @@ import React, { useMemo } from 'react'
 import genshin from 'genshin-db'
 import { useLanguage } from '../contexts/LanguageContext'
 import { useSearch } from '../hooks/useSearch'
+import { useTranslation } from '../hooks/useTranslation'
 import SearchFilter from '../components/common/SearchFilter'
 import ItemCard from '../components/cards/ItemCard'
 
 const Foods: React.FC = () => {
   const { language } = useLanguage()
+    const t = useTranslation()
   
   const foods = useMemo(() => {
     return genshin.foods('names', { matchCategories: true })
       .map(name => genshin.foods(name, { 
-        resultLanguage: language === 'spanish' ? 'spanish' : 'english'
+        resultLanguage: language,
+        queryLanguages: [language]
       }))
       .filter(Boolean)
   }, [language])
@@ -24,14 +27,14 @@ const Foods: React.FC = () => {
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Comidas</h1>
-        <p>Platos y alimentos que proporcionan beneficios temporales</p>
+        <h1>{t.pages.foods.title}</h1>
+        <p>{t.pages.foods.subtitle}</p>
       </div>
 
       <SearchFilter
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
-        placeholder="Buscar comidas..."
+        placeholder={t.pages.characters.searchPlaceholder}
       />
 
       <div className="grid-container">
@@ -54,7 +57,7 @@ const Foods: React.FC = () => {
 
       {filteredItems.length === 0 && (
         <div className="no-results">
-          <p>No se encontraron comidas que coincidan con la búsqueda.</p>
+          <p>{t.common.noResults}</p>
         </div>
       )}
     </div>

@@ -3,23 +3,27 @@ import React, { useMemo, useState } from 'react'
 import genshin from 'genshin-db'
 import { useLanguage } from '../contexts/LanguageContext'
 import { useSearch } from '../hooks/useSearch'
+import { useTranslation } from '../hooks/useTranslation'
 import SearchFilter from '../components/common/SearchFilter'
 import ItemCard from '../components/cards/ItemCard'
 
 const Materials: React.FC = () => {
   const { language } = useLanguage()
+      const t = useTranslation()
   const [materialType, setMaterialType] = useState<string>('all')
   
   const materials = useMemo(() => {
     const allMaterials = [
       ...genshin.materials('names', { matchCategories: true })
         .map(name => genshin.materials(name, { 
-          resultLanguage: language === 'spanish' ? 'spanish' : 'english'
+          resultLanguage: language,
+        queryLanguages: [language]
         }))
         .filter(Boolean),
       ...genshin.talents('names', { matchCategories: true })
         .map(name => genshin.talents(name, { 
-          resultLanguage: language === 'spanish' ? 'spanish' : 'english'
+          resultLanguage: language,
+        queryLanguages: [language]
         }))
         .filter(Boolean)
     ]
@@ -54,14 +58,14 @@ const Materials: React.FC = () => {
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Materiales</h1>
-        <p>Materiales de ascensión, talentos y mejora de armas</p>
+        <h1>{t.pages.materials.title}</h1>
+        <p>{t.pages.enemies.subtitle}</p>
       </div>
 
       <SearchFilter
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
-        placeholder="Buscar materiales..."
+        placeholder={t.pages.materials.searchPlaceholder}
         filters={
           <select 
             value={materialType} 
@@ -98,7 +102,7 @@ const Materials: React.FC = () => {
 
       {filteredItems.length === 0 && (
         <div className="no-results">
-          <p>No se encontraron materiales que coincidan con la búsqueda.</p>
+          <p>{t.common.noResults}</p>
         </div>
       )}
     </div>
