@@ -29,15 +29,11 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
     if (!url) return PLACEHOLDER_IMAGES[fallbackType.toUpperCase() as keyof typeof PLACEHOLDER_IMAGES]
     
     // Si ya es una URL completa, usarla directamente
-    if (url.startsWith('http')) {
-      return url
-    }
+    if (url.startsWith('http')) return url
     
     // Si es una ruta relativa, construir la URL completa
     // Las imágenes de genshin-db suelen ser relativas al dominio de Genshin Impact
-    if (url.startsWith('/')) {
-      return `https://genshin.honeyhunterworld.com${url}`
-    }
+    if (url.startsWith('/')) return `https://genshin.honeyhunterworld.com${url}`
     
     return url
   }
