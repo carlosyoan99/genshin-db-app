@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTranslation } from '../../hooks/useTranslation'
+import { validateSearchTerm } from '../../utils/security'
 
 interface SearchFilterProps {
   searchTerm: string
@@ -16,6 +17,12 @@ const SearchFilter: React.FC<SearchFilterProps> = ({
 }) => {
   const t = useTranslation()
 
+  const handleSearchChange = (value: string) => {
+    if (validateSearchTerm(value)) {
+      onSearchChange(value)
+    }
+  }
+
   return (
     <div className="search-filter">
       <div className="search-box">
@@ -23,8 +30,9 @@ const SearchFilter: React.FC<SearchFilterProps> = ({
           type="search"
           placeholder={placeholder || t.common.search}
           value={searchTerm}
-          onChange={(e) => onSearchChange(e.target.value)}
+          onChange={(e) => handleSearchChange(e.target.value)}
           className="search-input"
+          maxLength={100}
         />
       </div>
       {filters && (
