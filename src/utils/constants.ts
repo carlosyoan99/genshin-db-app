@@ -220,31 +220,6 @@ export const APP_CONFIG = {
   repository: 'https://github.com/carlosyoan99/genshin-db-app'
 } as const;
 
-// Placeholder images
-/**
-export const PLACEHOLDER_IMAGES = {
-  CHARACTER: 'https://via.placeholder.com/150x150/374151/FFFFFF?text=Character',
-  WEAPON: 'https://via.placeholder.com/150x150/374151/FFFFFF?text=Weapon',
-  ARTIFACT: 'https://via.placeholder.com/150x150/374151/FFFFFF?text=Artifact',
-  ENEMY: 'https://via.placeholder.com/150x150/374151/FFFFFF?text=Enemy',
-  MATERIAL: 'https://via.placeholder.com/150x150/374151/FFFFFF?text=Material',
-  DOMAIN: 'https://via.placeholder.com/150x150/374151/FFFFFF?text=Domain',
-  FOOD: 'https://via.placeholder.com/150x150/374151/FFFFFF?text=Food',
-  ANIMAL: 'https://via.placeholder.com/150x150/374151/FFFFFF?text=Animal'
-} as const;
- */
-// Placeholder images mejoradas
-export const PLACEHOLDER_IMAGES = {
-  CHARACTER: '/api/placeholder/150/150/374151/FFFFFF?text=👤',
-  WEAPON: '/api/placeholder/150/150/374151/FFFFFF?text=⚔️',
-  ARTIFACT: '/api/placeholder/150/150/374151/FFFFFF?text=🛡️',
-  ENEMY: '/api/placeholder/150/150/374151/FFFFFF?text=👹',
-  MATERIAL: '/api/placeholder/150/150/374151/FFFFFF?text=📦',
-  DOMAIN: '/api/placeholder/150/150/374151/FFFFFF?text=🏰',
-  FOOD: '/api/placeholder/150/150/374151/FFFFFF?text=🍲',
-  ANIMAL: '/api/placeholder/150/150/374151/FFFFFF?text=🐾'
-} as const;
-
 // LocalStorage keys
 export const STORAGE_KEYS = {
   THEME: 'theme',

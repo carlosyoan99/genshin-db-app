@@ -1,16 +1,18 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import genshin from 'genshin-db'
+import genshin, { type QueryOptions } from 'genshin-db'
 import { useLanguage } from '../contexts/LanguageContext'
 import ImageWithFallback from '../components/common/ImageWithFallback'
+import MaterialList from '../components/common/MaterialList'
 
 const WeaponDetail: React.FC = () => {
   const { name } = useParams<{ name: string }>()
   const { language } = useLanguage()
-
-  const weapon = name ? genshin.weapons(name, { 
+  const config : QueryOptions = { 
     resultLanguage: language === 'spanish' ? 'spanish' : 'english'
-  }) : null
+  }
+
+  const weapon = name ? genshin.weapons(name, config) : null
 
   if (!weapon) {
     return (
@@ -24,6 +26,15 @@ const WeaponDetail: React.FC = () => {
       </div>
     )
   }
+
+  // Niveles de refinamiento
+  const refinementLevels = [
+    { level: 'R1', effect: weapon.r1 },
+    { level: 'R2', effect: weapon.r2 },
+    { level: 'R3', effect: weapon.r3 },
+    { level: 'R4', effect: weapon.r4 },
+    { level: 'R5', effect: weapon.r5 }
+  ].filter(refinement => refinement.effect)
 
   return (
     <div className="page">
@@ -69,6 +80,12 @@ const WeaponDetail: React.FC = () => {
                   <span>{'⭐'.repeat(weapon.rarity)}</span>
                 </div>
               )}
+              {weapon.baseStatText && (
+                <div className="info-item">
+                  <strong>ATQ Base:</strong>
+                  <span>{weapon.baseAtkValue}</span>
+                </div>
+              )}
             </div>
           </section>
 
@@ -86,6 +103,43 @@ const WeaponDetail: React.FC = () => {
             <section className="info-section">
               <h2>Descripción</h2>
               <p>{weapon.description}</p>
+            </section>
+          )}
+
+          {/* Niveles de Refinamiento */}
+          {refinementLevels.length > 0 && (
+            <section className="info-section">
+              <h2>Niveles de Refinamiento</h2>
+              <div className="refinement-levels">
+                {refinementLevels.map((refinement, index) => (
+                  <div key={index} className="refinement-card">
+                    <h4>{refinement.level}</h4>
+                    {refinement.effect?.values.map((effect, effectIndex) => (
+                      <p key={effectIndex} className="refinement-effect">
+                        {effect}
+                      </p>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Materiales de Ascensión */}
+          {weapon.costs && (
+            <section className="info-section">
+              <h2>Materiales de Ascensión</h2>
+              <div className="ascension-materials">
+                {Object.entries(weapon.costs).map(([level, materials]) => (
+                  <div key={level} className="ascension-level">
+                    <h4>Ascensión {level.replace('ascend', '')}</h4>
+                    <MaterialList
+                      materials={materials || []}
+                      title=""
+                    />
+                  </div>
+                ))}
+              </div>
             </section>
           )}
         </div>

@@ -53,6 +53,7 @@ const Weapons: React.FC = () => {
                 rarity={weapon.rarity}
                 type={weapon.weaponType}
                 description={weapon.description}
+                itemType='weapon'
               />
             </Link>
           )

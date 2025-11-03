@@ -60,10 +60,48 @@ export interface Character {
     namegachasplash?: string
     namegachaslice?: string
   }
+  talent?: {
+    combat1?: Talent
+    combat2?: Talent
+    combatsp?: Talent
+    passive1?: Talent
+    passive2?: Talent
+    passive3?: Talent
+    passive4?: Talent
+  }
+  constellations?: Constellation[]
+  talentmaterial?: TalentMaterial
   url?: {
     fandom?: string
   }
   version?: string
+}
+
+export interface Talent {
+  name: string
+  info: string
+  description?: string
+  attributes?: {
+    labels: string[]
+    parameters: { [key: string]: number[] }
+  }
+}
+
+export interface Constellation {
+  name: string
+  effect: string
+  description?: string
+}
+
+export interface TalentMaterial {
+  name: string
+  "2starname"?: string
+  "3starname"?: string
+  "4starname"?: string
+  day?: string[]
+  location?: string
+  region?: string
+  domainofmastery?: string
 }
 
 export interface Weapon {
@@ -96,6 +134,26 @@ export interface Weapon {
     fandom?: string
   }
   version?: string
+}
+
+export interface AscensionMaterial {
+  name: string
+  count?: number
+}
+
+export interface Material {
+  name: string
+  description?: string
+  rarity?: number
+  category?: string
+  materialtype?: string
+  dropdomain?: string
+  daysofweek?: string[]
+  source?: string[]
+  images?: {
+    icon?: string
+    redirect?: string
+  }
 }
 
 export interface Artifact {

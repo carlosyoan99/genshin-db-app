@@ -967,3 +967,227 @@ body {
     height: 40px;
   }
 }
+
+/* Talentos */
+.talents-grid {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.talent-card {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+}
+
+.talent-card.passive {
+  border-left: 4px solid var(--accent-color);
+}
+
+.talent-card h4 {
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-color);
+}
+
+.talent-description {
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.talent-details {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: var(--spacing-sm);
+  font-style: italic;
+}
+
+/* Constelaciones */
+.constellations-grid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.constellation-card {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  border-left: 4px solid var(--primary-color);
+}
+
+.constellation-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.constellation-level {
+  background: var(--primary-color);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.constellation-effect {
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.constellation-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: var(--spacing-sm);
+}
+
+/* Materiales */
+.material-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.material-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.material-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius);
+}
+
+.material-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.material-name {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.material-count {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.empty-message {
+  color: var(--text-secondary);
+  font-style: italic;
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+/* Ascensiones */
+.ascension-materials {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.ascension-level {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+}
+
+.ascension-level h4 {
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: var(--spacing-sm);
+}
+
+/* Refinamientos */
+.refinement-levels {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.refinement-card {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  border-left: 4px solid var(--accent-color);
+}
+
+.refinement-card h4 {
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-color);
+}
+
+.refinement-effect {
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xs);
+}
+
+.refinement-effect:last-child {
+  margin-bottom: 0;
+}
+
+/* Información de materiales de talentos */
+.talent-material-info {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+}
+
+.talent-material-info p {
+  margin-bottom: var(--spacing-sm);
+}
+
+.talent-material-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .talents-grid,
+  .constellations-grid,
+  .refinement-levels {
+    grid-template-columns: 1fr;
+  }
+  
+  .materials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .material-item {
+    padding: var(--spacing-md);
+  }
+  
+  .ascension-level {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .constellation-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+  
+  .material-item {
+    padding: var(--spacing-sm);
+  }
+}
