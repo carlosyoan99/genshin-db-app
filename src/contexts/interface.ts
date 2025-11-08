@@ -1,4 +1,5 @@
-import type { Theme, Language } from './types'
+import type { Theme } from './types'
+import type { Language } from 'genshin-db'
 
 export interface ThemeContextType {
     theme: Theme

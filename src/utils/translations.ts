@@ -1,4 +1,4 @@
-import type { Language } from '../contexts/types'
+import type { Language } from 'genshin-db'
 
 export interface Translations {
   common: {
@@ -115,7 +115,7 @@ export interface Translations {
 }
 
 export const translations: Record<Language, Translations> = {
-  english: {
+  English: {
     common: {
       search: 'Search',
       loading: 'Loading...',
@@ -228,7 +228,7 @@ export const translations: Record<Language, Translations> = {
       ascensionMaterials: 'Ascension Materials'
     }
   },
-  spanish: {
+  Spanish: {
     common: {
       search: 'Buscar',
       loading: 'Cargando...',
@@ -341,7 +341,7 @@ export const translations: Record<Language, Translations> = {
       ascensionMaterials: 'Materiales de Ascensión'
     }
   },
-  french: {
+  French: {
     common: {
       search: 'Rechercher',
       loading: 'Chargement...',
@@ -454,7 +454,7 @@ export const translations: Record<Language, Translations> = {
       ascensionMaterials: 'Matériaux d\'Ascension'
     }
   },
-  portuguese: {
+  Portuguese: {
     common: {
       search: 'Pesquisar',
       loading: 'Carregando...',
@@ -567,7 +567,7 @@ export const translations: Record<Language, Translations> = {
       ascensionMaterials: 'Materiais de Ascensão'
     }
   },
-  german: {
+  German: {
     common: {
       search: 'Suchen',
       loading: 'Lädt...',
@@ -680,7 +680,7 @@ export const translations: Record<Language, Translations> = {
       ascensionMaterials: 'Aufstiegsmaterialien'
     }
   },
-  russian: {
+  Russian: {
     common: {
       search: 'Поиск',
       loading: 'Загрузка...',
@@ -793,7 +793,7 @@ export const translations: Record<Language, Translations> = {
       ascensionMaterials: 'Материалы вознесения'
     }
   },
-  italian: {
+  Italian: {
     common: {
       search: 'Cerca',
       loading: 'Caricamento...',
@@ -906,8 +906,10 @@ export const translations: Record<Language, Translations> = {
       ascensionMaterials: 'Materiali di Ascensione'
     }
   },
-  // Idiomas asiáticos (mantenemos los textos en inglés para la interfaz)
-  japanese: {
+  /**
+   * Idiomas asiáticos (mantenemos los textos en inglés para la interfaz)
+   */ 
+  Japanese: {
     common: {
       search: 'Search',
       loading: 'Loading...',
@@ -1020,7 +1022,7 @@ export const translations: Record<Language, Translations> = {
       ascensionMaterials: 'Ascension Materials'
     }
   },
-  chinese: {
+  ChineseSimplified: {
     common: {
       search: 'Search',
       loading: 'Loading...',
@@ -1133,7 +1135,7 @@ export const translations: Record<Language, Translations> = {
       ascensionMaterials: 'Ascension Materials'
     }
   },
-  korean: {
+  Korean: {
     common: {
       search: 'Search',
       loading: 'Loading...',
@@ -1245,5 +1247,573 @@ export const translations: Record<Language, Translations> = {
       refinementLevels: 'Refinement Levels',
       ascensionMaterials: 'Ascension Materials'
     }
-  }
+  },
+  /**
+   * Estos son puro Ingles, estan puestos para quitarnos el error de Typescript
+   */
+  ChineseTraditional: {
+    common: {
+      search: 'Search',
+      loading: 'Loading...',
+      noResults: 'No results found',
+      back: 'Back',
+      seeMore: 'See more',
+      description: 'Description',
+      details: 'Details',
+      level: 'Level',
+      type: 'Type',
+      rarity: 'Rarity',
+      effect: 'Effect',
+      materials: 'Materials',
+      ascension: 'Ascension',
+      talents: 'Talents',
+      constellations: 'Constellations',
+      refinement: 'Refinement'
+    },
+    nav: {
+      home: 'Home',
+      characters: 'Characters',
+      weapons: 'Weapons',
+      artifacts: 'Artifacts',
+      enemies: 'Enemies',
+      materials: 'Materials',
+      elements: 'Elements',
+      domains: 'Domains',
+      foods: 'Foods',
+      animals: 'Animals',
+      about: 'About'
+    },
+    pages: {
+      home: {
+        title: 'Genshin Impact Database',
+        subtitle: 'Explore all Teyvat world information',
+        description: 'This application uses the genshin-db library to provide updated information about Genshin Impact.'
+      },
+      characters: {
+        title: 'Characters',
+        subtitle: 'Explore all playable characters from Genshin Impact',
+        searchPlaceholder: 'Search characters...'
+      },
+      weapons: {
+        title: 'Weapons',
+        subtitle: 'Explore all available weapons in Genshin Impact',
+        searchPlaceholder: 'Search weapons...'
+      },
+      artifacts: {
+        title: 'Artifacts',
+        subtitle: 'Explore all artifact sets available',
+        searchPlaceholder: 'Search artifacts...'
+      },
+      enemies: {
+        title: 'Enemies',
+        subtitle: 'Explore all enemies and bosses in the game',
+        searchPlaceholder: 'Search enemies...'
+      },
+      materials: {
+        title: 'Materials',
+        subtitle: 'Ascension, talent and weapon enhancement materials',
+        searchPlaceholder: 'Search materials...'
+      },
+      elements: {
+        title: 'Elements',
+        subtitle: 'The seven elements that define combat in Teyvat'
+      },
+      domains: {
+        title: 'Domains',
+        subtitle: 'Artifact, talent and ascension domains',
+        searchPlaceholder: 'Search domains...'
+      },
+      foods: {
+        title: 'Foods',
+        subtitle: 'Dishes and foods that provide temporary benefits',
+        searchPlaceholder: 'Search foods...'
+      },
+      animals: {
+        title: 'Animals',
+        subtitle: 'Fauna and creatures of Teyvat',
+        searchPlaceholder: 'Search animals...'
+      },
+      about: {
+        title: 'About the Project',
+        description: 'This is a fan-made web application that provides comprehensive information about Genshin Impact game data.',
+        features: 'Features',
+        technologies: 'Technologies Used',
+        disclaimer: 'This project is not affiliated with HoYoverse. Genshin Impact, game content and materials are trademarks and copyrights of HoYoverse.'
+      }
+    },
+    characterDetail: {
+      generalInfo: 'General Information',
+      region: 'Region',
+      affiliation: 'Affiliation',
+      constellation: 'Constellation',
+      birthday: 'Birthday',
+      combatTalents: 'Combat Talents',
+      passiveTalents: 'Passive Talents',
+      ascensionMaterials: 'Ascension Materials',
+      talentMaterials: 'Talent Materials',
+      domain: 'Domain',
+      days: 'Days',
+      location: 'Location'
+    },
+    weaponDetail: {
+      generalInfo: 'General Information',
+      weaponType: 'Weapon Type',
+      substat: 'Substat',
+      baseAtk: 'Base ATK',
+      refinementLevels: 'Refinement Levels',
+      ascensionMaterials: 'Ascension Materials'
+    }
+  },
+  Indonesian: {
+    common: {
+      search: 'Search',
+      loading: 'Loading...',
+      noResults: 'No results found',
+      back: 'Back',
+      seeMore: 'See more',
+      description: 'Description',
+      details: 'Details',
+      level: 'Level',
+      type: 'Type',
+      rarity: 'Rarity',
+      effect: 'Effect',
+      materials: 'Materials',
+      ascension: 'Ascension',
+      talents: 'Talents',
+      constellations: 'Constellations',
+      refinement: 'Refinement'
+    },
+    nav: {
+      home: 'Home',
+      characters: 'Characters',
+      weapons: 'Weapons',
+      artifacts: 'Artifacts',
+      enemies: 'Enemies',
+      materials: 'Materials',
+      elements: 'Elements',
+      domains: 'Domains',
+      foods: 'Foods',
+      animals: 'Animals',
+      about: 'About'
+    },
+    pages: {
+      home: {
+        title: 'Genshin Impact Database',
+        subtitle: 'Explore all Teyvat world information',
+        description: 'This application uses the genshin-db library to provide updated information about Genshin Impact.'
+      },
+      characters: {
+        title: 'Characters',
+        subtitle: 'Explore all playable characters from Genshin Impact',
+        searchPlaceholder: 'Search characters...'
+      },
+      weapons: {
+        title: 'Weapons',
+        subtitle: 'Explore all available weapons in Genshin Impact',
+        searchPlaceholder: 'Search weapons...'
+      },
+      artifacts: {
+        title: 'Artifacts',
+        subtitle: 'Explore all artifact sets available',
+        searchPlaceholder: 'Search artifacts...'
+      },
+      enemies: {
+        title: 'Enemies',
+        subtitle: 'Explore all enemies and bosses in the game',
+        searchPlaceholder: 'Search enemies...'
+      },
+      materials: {
+        title: 'Materials',
+        subtitle: 'Ascension, talent and weapon enhancement materials',
+        searchPlaceholder: 'Search materials...'
+      },
+      elements: {
+        title: 'Elements',
+        subtitle: 'The seven elements that define combat in Teyvat'
+      },
+      domains: {
+        title: 'Domains',
+        subtitle: 'Artifact, talent and ascension domains',
+        searchPlaceholder: 'Search domains...'
+      },
+      foods: {
+        title: 'Foods',
+        subtitle: 'Dishes and foods that provide temporary benefits',
+        searchPlaceholder: 'Search foods...'
+      },
+      animals: {
+        title: 'Animals',
+        subtitle: 'Fauna and creatures of Teyvat',
+        searchPlaceholder: 'Search animals...'
+      },
+      about: {
+        title: 'About the Project',
+        description: 'This is a fan-made web application that provides comprehensive information about Genshin Impact game data.',
+        features: 'Features',
+        technologies: 'Technologies Used',
+        disclaimer: 'This project is not affiliated with HoYoverse. Genshin Impact, game content and materials are trademarks and copyrights of HoYoverse.'
+      }
+    },
+    characterDetail: {
+      generalInfo: 'General Information',
+      region: 'Region',
+      affiliation: 'Affiliation',
+      constellation: 'Constellation',
+      birthday: 'Birthday',
+      combatTalents: 'Combat Talents',
+      passiveTalents: 'Passive Talents',
+      ascensionMaterials: 'Ascension Materials',
+      talentMaterials: 'Talent Materials',
+      domain: 'Domain',
+      days: 'Days',
+      location: 'Location'
+    },
+    weaponDetail: {
+      generalInfo: 'General Information',
+      weaponType: 'Weapon Type',
+      substat: 'Substat',
+      baseAtk: 'Base ATK',
+      refinementLevels: 'Refinement Levels',
+      ascensionMaterials: 'Ascension Materials'
+    }
+  },
+  Thai: {
+    common: {
+      search: 'Search',
+      loading: 'Loading...',
+      noResults: 'No results found',
+      back: 'Back',
+      seeMore: 'See more',
+      description: 'Description',
+      details: 'Details',
+      level: 'Level',
+      type: 'Type',
+      rarity: 'Rarity',
+      effect: 'Effect',
+      materials: 'Materials',
+      ascension: 'Ascension',
+      talents: 'Talents',
+      constellations: 'Constellations',
+      refinement: 'Refinement'
+    },
+    nav: {
+      home: 'Home',
+      characters: 'Characters',
+      weapons: 'Weapons',
+      artifacts: 'Artifacts',
+      enemies: 'Enemies',
+      materials: 'Materials',
+      elements: 'Elements',
+      domains: 'Domains',
+      foods: 'Foods',
+      animals: 'Animals',
+      about: 'About'
+    },
+    pages: {
+      home: {
+        title: 'Genshin Impact Database',
+        subtitle: 'Explore all Teyvat world information',
+        description: 'This application uses the genshin-db library to provide updated information about Genshin Impact.'
+      },
+      characters: {
+        title: 'Characters',
+        subtitle: 'Explore all playable characters from Genshin Impact',
+        searchPlaceholder: 'Search characters...'
+      },
+      weapons: {
+        title: 'Weapons',
+        subtitle: 'Explore all available weapons in Genshin Impact',
+        searchPlaceholder: 'Search weapons...'
+      },
+      artifacts: {
+        title: 'Artifacts',
+        subtitle: 'Explore all artifact sets available',
+        searchPlaceholder: 'Search artifacts...'
+      },
+      enemies: {
+        title: 'Enemies',
+        subtitle: 'Explore all enemies and bosses in the game',
+        searchPlaceholder: 'Search enemies...'
+      },
+      materials: {
+        title: 'Materials',
+        subtitle: 'Ascension, talent and weapon enhancement materials',
+        searchPlaceholder: 'Search materials...'
+      },
+      elements: {
+        title: 'Elements',
+        subtitle: 'The seven elements that define combat in Teyvat'
+      },
+      domains: {
+        title: 'Domains',
+        subtitle: 'Artifact, talent and ascension domains',
+        searchPlaceholder: 'Search domains...'
+      },
+      foods: {
+        title: 'Foods',
+        subtitle: 'Dishes and foods that provide temporary benefits',
+        searchPlaceholder: 'Search foods...'
+      },
+      animals: {
+        title: 'Animals',
+        subtitle: 'Fauna and creatures of Teyvat',
+        searchPlaceholder: 'Search animals...'
+      },
+      about: {
+        title: 'About the Project',
+        description: 'This is a fan-made web application that provides comprehensive information about Genshin Impact game data.',
+        features: 'Features',
+        technologies: 'Technologies Used',
+        disclaimer: 'This project is not affiliated with HoYoverse. Genshin Impact, game content and materials are trademarks and copyrights of HoYoverse.'
+      }
+    },
+    characterDetail: {
+      generalInfo: 'General Information',
+      region: 'Region',
+      affiliation: 'Affiliation',
+      constellation: 'Constellation',
+      birthday: 'Birthday',
+      combatTalents: 'Combat Talents',
+      passiveTalents: 'Passive Talents',
+      ascensionMaterials: 'Ascension Materials',
+      talentMaterials: 'Talent Materials',
+      domain: 'Domain',
+      days: 'Days',
+      location: 'Location'
+    },
+    weaponDetail: {
+      generalInfo: 'General Information',
+      weaponType: 'Weapon Type',
+      substat: 'Substat',
+      baseAtk: 'Base ATK',
+      refinementLevels: 'Refinement Levels',
+      ascensionMaterials: 'Ascension Materials'
+    }
+  },
+  Turkish: {
+    common: {
+      search: 'Search',
+      loading: 'Loading...',
+      noResults: 'No results found',
+      back: 'Back',
+      seeMore: 'See more',
+      description: 'Description',
+      details: 'Details',
+      level: 'Level',
+      type: 'Type',
+      rarity: 'Rarity',
+      effect: 'Effect',
+      materials: 'Materials',
+      ascension: 'Ascension',
+      talents: 'Talents',
+      constellations: 'Constellations',
+      refinement: 'Refinement'
+    },
+    nav: {
+      home: 'Home',
+      characters: 'Characters',
+      weapons: 'Weapons',
+      artifacts: 'Artifacts',
+      enemies: 'Enemies',
+      materials: 'Materials',
+      elements: 'Elements',
+      domains: 'Domains',
+      foods: 'Foods',
+      animals: 'Animals',
+      about: 'About'
+    },
+    pages: {
+      home: {
+        title: 'Genshin Impact Database',
+        subtitle: 'Explore all Teyvat world information',
+        description: 'This application uses the genshin-db library to provide updated information about Genshin Impact.'
+      },
+      characters: {
+        title: 'Characters',
+        subtitle: 'Explore all playable characters from Genshin Impact',
+        searchPlaceholder: 'Search characters...'
+      },
+      weapons: {
+        title: 'Weapons',
+        subtitle: 'Explore all available weapons in Genshin Impact',
+        searchPlaceholder: 'Search weapons...'
+      },
+      artifacts: {
+        title: 'Artifacts',
+        subtitle: 'Explore all artifact sets available',
+        searchPlaceholder: 'Search artifacts...'
+      },
+      enemies: {
+        title: 'Enemies',
+        subtitle: 'Explore all enemies and bosses in the game',
+        searchPlaceholder: 'Search enemies...'
+      },
+      materials: {
+        title: 'Materials',
+        subtitle: 'Ascension, talent and weapon enhancement materials',
+        searchPlaceholder: 'Search materials...'
+      },
+      elements: {
+        title: 'Elements',
+        subtitle: 'The seven elements that define combat in Teyvat'
+      },
+      domains: {
+        title: 'Domains',
+        subtitle: 'Artifact, talent and ascension domains',
+        searchPlaceholder: 'Search domains...'
+      },
+      foods: {
+        title: 'Foods',
+        subtitle: 'Dishes and foods that provide temporary benefits',
+        searchPlaceholder: 'Search foods...'
+      },
+      animals: {
+        title: 'Animals',
+        subtitle: 'Fauna and creatures of Teyvat',
+        searchPlaceholder: 'Search animals...'
+      },
+      about: {
+        title: 'About the Project',
+        description: 'This is a fan-made web application that provides comprehensive information about Genshin Impact game data.',
+        features: 'Features',
+        technologies: 'Technologies Used',
+        disclaimer: 'This project is not affiliated with HoYoverse. Genshin Impact, game content and materials are trademarks and copyrights of HoYoverse.'
+      }
+    },
+    characterDetail: {
+      generalInfo: 'General Information',
+      region: 'Region',
+      affiliation: 'Affiliation',
+      constellation: 'Constellation',
+      birthday: 'Birthday',
+      combatTalents: 'Combat Talents',
+      passiveTalents: 'Passive Talents',
+      ascensionMaterials: 'Ascension Materials',
+      talentMaterials: 'Talent Materials',
+      domain: 'Domain',
+      days: 'Days',
+      location: 'Location'
+    },
+    weaponDetail: {
+      generalInfo: 'General Information',
+      weaponType: 'Weapon Type',
+      substat: 'Substat',
+      baseAtk: 'Base ATK',
+      refinementLevels: 'Refinement Levels',
+      ascensionMaterials: 'Ascension Materials'
+    }
+  },
+  Vietnamese: {
+    common: {
+      search: 'Search',
+      loading: 'Loading...',
+      noResults: 'No results found',
+      back: 'Back',
+      seeMore: 'See more',
+      description: 'Description',
+      details: 'Details',
+      level: 'Level',
+      type: 'Type',
+      rarity: 'Rarity',
+      effect: 'Effect',
+      materials: 'Materials',
+      ascension: 'Ascension',
+      talents: 'Talents',
+      constellations: 'Constellations',
+      refinement: 'Refinement'
+    },
+    nav: {
+      home: 'Home',
+      characters: 'Characters',
+      weapons: 'Weapons',
+      artifacts: 'Artifacts',
+      enemies: 'Enemies',
+      materials: 'Materials',
+      elements: 'Elements',
+      domains: 'Domains',
+      foods: 'Foods',
+      animals: 'Animals',
+      about: 'About'
+    },
+    pages: {
+      home: {
+        title: 'Genshin Impact Database',
+        subtitle: 'Explore all Teyvat world information',
+        description: 'This application uses the genshin-db library to provide updated information about Genshin Impact.'
+      },
+      characters: {
+        title: 'Characters',
+        subtitle: 'Explore all playable characters from Genshin Impact',
+        searchPlaceholder: 'Search characters...'
+      },
+      weapons: {
+        title: 'Weapons',
+        subtitle: 'Explore all available weapons in Genshin Impact',
+        searchPlaceholder: 'Search weapons...'
+      },
+      artifacts: {
+        title: 'Artifacts',
+        subtitle: 'Explore all artifact sets available',
+        searchPlaceholder: 'Search artifacts...'
+      },
+      enemies: {
+        title: 'Enemies',
+        subtitle: 'Explore all enemies and bosses in the game',
+        searchPlaceholder: 'Search enemies...'
+      },
+      materials: {
+        title: 'Materials',
+        subtitle: 'Ascension, talent and weapon enhancement materials',
+        searchPlaceholder: 'Search materials...'
+      },
+      elements: {
+        title: 'Elements',
+        subtitle: 'The seven elements that define combat in Teyvat'
+      },
+      domains: {
+        title: 'Domains',
+        subtitle: 'Artifact, talent and ascension domains',
+        searchPlaceholder: 'Search domains...'
+      },
+      foods: {
+        title: 'Foods',
+        subtitle: 'Dishes and foods that provide temporary benefits',
+        searchPlaceholder: 'Search foods...'
+      },
+      animals: {
+        title: 'Animals',
+        subtitle: 'Fauna and creatures of Teyvat',
+        searchPlaceholder: 'Search animals...'
+      },
+      about: {
+        title: 'About the Project',
+        description: 'This is a fan-made web application that provides comprehensive information about Genshin Impact game data.',
+        features: 'Features',
+        technologies: 'Technologies Used',
+        disclaimer: 'This project is not affiliated with HoYoverse. Genshin Impact, game content and materials are trademarks and copyrights of HoYoverse.'
+      }
+    },
+    characterDetail: {
+      generalInfo: 'General Information',
+      region: 'Region',
+      affiliation: 'Affiliation',
+      constellation: 'Constellation',
+      birthday: 'Birthday',
+      combatTalents: 'Combat Talents',
+      passiveTalents: 'Passive Talents',
+      ascensionMaterials: 'Ascension Materials',
+      talentMaterials: 'Talent Materials',
+      domain: 'Domain',
+      days: 'Days',
+      location: 'Location'
+    },
+    weaponDetail: {
+      generalInfo: 'General Information',
+      weaponType: 'Weapon Type',
+      substat: 'Substat',
+      baseAtk: 'Base ATK',
+      refinementLevels: 'Refinement Levels',
+      ascensionMaterials: 'Ascension Materials'
+    }
+  },
 }

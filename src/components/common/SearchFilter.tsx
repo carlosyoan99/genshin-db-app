@@ -18,9 +18,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({
   const t = useTranslation()
 
   const handleSearchChange = (value: string) => {
-    if (validateSearchTerm(value)) {
-      onSearchChange(value)
-    }
+    if (validateSearchTerm(value)) onSearchChange(value)
   }
 
   return (

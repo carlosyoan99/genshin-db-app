@@ -12,7 +12,7 @@ const CharacterDetail: React.FC = () => {
     const t = useTranslation()
   const config : QueryOptions = {
     resultLanguage: language,
-        queryLanguages: [language]
+    queryLanguages: [language]
   }
 
   const character = name ? genshin.characters(name, config) : null
@@ -45,9 +45,9 @@ const CharacterDetail: React.FC = () => {
   const combatTalents = [
     { key: 'combat1', label: 'Ataque Normal' },
     { key: 'combat2', label: 'Habilidad Elemental' },
-    { key: 'combatsp', label: 'Habilidad Definitiva' },
-    { key: 'combatju', label: 'Habilidad Definitiva' },
-    { key: 'combat3', label: 'Habilidad Definitiva' }
+    { key: 'combatsp', label: 'Habilidad Definitiva SP' },
+    { key: 'combatju', label: 'Habilidad Definitiva JU' },
+    { key: 'combat3', label: 'Habilidad Definitiva 3' }
   ].filter(talent => {
     if (characterTalent) return characterTalent[talent.key as keyof typeof characterTalent]
   })
