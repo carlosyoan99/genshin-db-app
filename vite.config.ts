@@ -8,7 +8,7 @@ export default defineConfig({
   ],
   server: {
     port: 3000,
-    open: true, // Abre el navegador automáticamente
+    open: false, // Abre el navegador automáticamente
   },
   base: '/',
   build: {
