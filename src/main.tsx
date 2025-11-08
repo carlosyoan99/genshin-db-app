@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
 import App from './App'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { LanguageProvider } from './contexts/LanguageContext'
@@ -9,7 +8,6 @@ import './styles/globals.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <HelmetProvider>
       <BrowserRouter>
         <ThemeProvider>
           <LanguageProvider>
@@ -17,6 +15,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           </LanguageProvider>
         </ThemeProvider>
       </BrowserRouter>
-    </HelmetProvider>
   </React.StrictMode>
 )
